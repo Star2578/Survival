@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
     void Movement()
