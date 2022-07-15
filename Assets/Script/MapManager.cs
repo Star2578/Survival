@@ -11,6 +11,8 @@ public class MapManager : MonoBehaviour
     public OverlayTile overlaytilePf;
     public GameObject overlayContainer;
 
+    public Dictionary<Vector2Int, OverlayTile> map = new Dictionary<Vector2Int, OverlayTile>();
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -36,15 +38,17 @@ public class MapManager : MonoBehaviour
                 for (int y = bounds.min.y; y < bounds.max.y; y++)
                 {
                     var tileLocation = new Vector3Int(x, y, z);
+                    var tileKey = new Vector2Int(x, y);
                     Vector3 place = tileMap.CellToWorld(tileLocation);
 
-                    if (tileMap.HasTile(tileLocation))
+                    if (tileMap.HasTile(tileLocation) && !map.ContainsKey(tileKey))
                     {
                         var OverlayTile = Instantiate(overlaytilePf, overlayContainer.transform);
                         var cellWorldPos = tileMap.GetCellCenterWorld(tileLocation);
 
                         OverlayTile.transform.position = new Vector3(cellWorldPos.x, cellWorldPos.y, cellWorldPos.z + 1);
                         OverlayTile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
+                        map.Add(tileKey, OverlayTile);
                         OverlayTile.HideTile();
                     }
                 }
