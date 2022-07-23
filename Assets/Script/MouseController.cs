@@ -29,5 +29,12 @@ public class MouseController : MonoBehaviour
             transform.position = overlayTile.transform.position;
             gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlayTile.GetComponent<SpriteRenderer>().sortingOrder;
         }
+
+        if (Input.GetMouseButtonDown(0) && focusTile.HasValue)
+        {
+            Debug.Log("it's" + focusTile.Value.collider.name);
+
+            var target = focusTile.Value.collider;
+        }
     }
 }

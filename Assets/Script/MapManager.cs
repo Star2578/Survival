@@ -63,29 +63,7 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
-
-        for (int z = bounds.max.z; z >= bounds.min.z ; z--)
-        {
-            for (int x = bounds.min.x; x < bounds.max.x; x++)
-            {
-                for (int y = bounds.min.y; y < bounds.max.y; y++)
-                {
-                    var tileLocation = new Vector3Int(x, y, z);
-                    var tileKey = new Vector2Int(x, y);
-                    Vector3 place = tileMap.CellToWorld(tileLocation);
-
-                    var Randomizer = Random.Range(1, 100);
-                    if (tileMap.HasTile(tileLocation) && Randomizer <= density)
-                    {
-                        var obj = Instantiate(objectToSpawn[Random.Range(0, objectToSpawn.Count)], objectContainer.transform);
-                        var cellWorldPos = tileMap.GetCellCenterWorld(tileLocation);
-
-                        obj.transform.position = new Vector3(cellWorldPos.x, cellWorldPos.y, cellWorldPos.z + 1);
-                        obj.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
-                    }
-                }
-            }
-        }
+        ObjectSpawn();
     }
 
     private void Update()
