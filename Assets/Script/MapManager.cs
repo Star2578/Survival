@@ -8,6 +8,10 @@ public class MapManager : MonoBehaviour
     private static MapManager _instance;
     public static MapManager Instance { get { return _instance; } }
 
+    [Header("Testing")]
+    public int density = 0;
+    private bool isEmpty = false;
+
     [Header("Spawn Overlay")]
     public OverlayTile overlaytilePf;
     public GameObject overlayContainer;
@@ -70,8 +74,60 @@ public class MapManager : MonoBehaviour
                     var tileKey = new Vector2Int(x, y);
                     Vector3 place = tileMap.CellToWorld(tileLocation);
 
-                    var Randomizer = Random.Range(0, 99);
-                    if (tileMap.HasTile(tileLocation) && Randomizer > 80)
+                    var Randomizer = Random.Range(1, 100);
+                    if (tileMap.HasTile(tileLocation) && Randomizer <= density)
+                    {
+                        var obj = Instantiate(objectToSpawn[Random.Range(0, objectToSpawn.Count)], objectContainer.transform);
+                        var cellWorldPos = tileMap.GetCellCenterWorld(tileLocation);
+
+                        obj.transform.position = new Vector3(cellWorldPos.x, cellWorldPos.y, cellWorldPos.z + 1);
+                        obj.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
+                    }
+                }
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (isEmpty && Input.GetKeyDown(KeyCode.P))
+        {
+            ObjectSpawn();
+            isEmpty = false;
+        }
+        else if (!isEmpty && Input.GetKeyDown(KeyCode.P))
+        {
+            ResetObjectSpawn();
+            isEmpty = true;
+        }
+    }
+
+    private void ResetObjectSpawn()
+    {
+        for (int i = objectContainer.transform.childCount - 1; i >= 0 ; i--)
+        {
+            Object.Destroy(objectContainer.transform.GetChild(i).gameObject); // Destroy all object spawned
+        }
+    }
+
+    private void ObjectSpawn()
+    {
+        var tileMap = gameObject.GetComponentInChildren<Tilemap>();
+
+        BoundsInt bounds = tileMap.cellBounds;
+
+        for (int z = bounds.max.z; z >= bounds.min.z ; z--)
+        {
+            for (int x = bounds.min.x; x < bounds.max.x; x++)
+            {
+                for (int y = bounds.min.y; y < bounds.max.y; y++)
+                {
+                    var tileLocation = new Vector3Int(x, y, z);
+                    var tileKey = new Vector2Int(x, y);
+                    Vector3 place = tileMap.CellToWorld(tileLocation);
+
+                    var Randomizer = Random.Range(1, 100);
+                    if (tileMap.HasTile(tileLocation) && Randomizer <= density)
                     {
                         var obj = Instantiate(objectToSpawn[Random.Range(0, objectToSpawn.Count)], objectContainer.transform);
                         var cellWorldPos = tileMap.GetCellCenterWorld(tileLocation);
