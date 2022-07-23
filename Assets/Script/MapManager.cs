@@ -19,6 +19,7 @@ public class MapManager : MonoBehaviour
     public Dictionary<Vector2Int, OverlayTile> map = new Dictionary<Vector2Int, OverlayTile>();
 
     [Header("Spawn Object")]
+    private bool once = false;
     public GameObject objectContainer;
     public List<GameObject> objectToSpawn = new List<GameObject>();
 
@@ -63,11 +64,16 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
-        ObjectSpawn();
     }
 
     private void Update()
     {
+        if (!once)
+        {
+            ObjectSpawn();
+            once = !once;
+        }
+
         if (isEmpty && Input.GetKeyDown(KeyCode.P))
         {
             ObjectSpawn();
