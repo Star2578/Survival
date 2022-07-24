@@ -9,7 +9,8 @@ public class BlockScript : MonoBehaviour
     public SpriteRenderer sr;
     public float HP;
 
-    public float force = 5;
+    [Header("Drop item")]
+    public float speed = 5;
 
     private void Start()
     {
@@ -31,9 +32,6 @@ public class BlockScript : MonoBehaviour
     private void Destroyed()
     {
         var items = Instantiate(bp.objectToDrop[0], transform.position, Quaternion.identity);
-        
-        // items.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
-        items.transform.position = Vector3.Lerp(transform.position, transform.position, force);
 
         Destroy(gameObject);
     }

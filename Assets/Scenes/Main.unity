@@ -41293,6 +41293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlayTile: {fileID: 4214096246520454966, guid: d357c3822c1173b4c9fc828e3a0c94a9, type: 3}
+  overlayContainer: {fileID: 72743905}
+  objectContainer: {fileID: 257639195}
 --- !u!1 &734078299
 GameObject:
   m_ObjectHideFlags: 0

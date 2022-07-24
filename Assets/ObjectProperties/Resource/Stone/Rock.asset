@@ -15,4 +15,5 @@ MonoBehaviour:
   texture: {fileID: -9931334, guid: b119cfd4f39d6974f83a907d313aee37, type: 3}
   hardness: 02
   HP: 10
-  objectToDrop: []
+  objectToDrop:
+  - {fileID: 4426090371943510957, guid: 3e12d34c9b153de46934161bdfe015b8, type: 3}
