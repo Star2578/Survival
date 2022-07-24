@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7662102458532710123}
   - component: {fileID: 7379980696663181608}
+  - component: {fileID: 2379240732700435626}
   - component: {fileID: 90337514988610976}
   m_Layer: 0
   m_Name: LogPf
@@ -85,6 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2379240732700435626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742358239366349958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b761793af91713745934aec47f1670a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bp: {fileID: 11400000, guid: 5878b864e151f844b95006a8e9861ec2, type: 2}
+  sr: {fileID: 7379980696663181608}
 --- !u!61 &90337514988610976
 BoxCollider2D:
   m_ObjectHideFlags: 0
