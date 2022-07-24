@@ -9,6 +9,8 @@ public class BlockScript : MonoBehaviour
     public SpriteRenderer sr;
     public float HP;
 
+    public float force = 5;
+
     private void Start()
     {
         sr.sprite = bp.texture;
@@ -17,6 +19,22 @@ public class BlockScript : MonoBehaviour
 
     private void GotHit(float damage)
     {
+        HP -= damage;
+
+        if (HP <= 0)
+        {
+            HP = 0;
+            Destroyed();
+        }
+    }
+
+    private void Destroyed()
+    {
+        var items = Instantiate(bp.objectToDrop[0], transform.position, Quaternion.identity);
         
+        // items.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
+        items.transform.position = Vector3.Lerp(transform.position, transform.position, force);
+
+        Destroy(gameObject);
     }
 }

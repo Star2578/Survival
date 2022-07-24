@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5112736868058408951}
   - component: {fileID: 1779967437688663463}
+  - component: {fileID: -626647302965004386}
   - component: {fileID: 6168533431850178722}
   m_Layer: 0
   m_Name: RockPf
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1107128437
+  m_SortingLayerID: -479293217
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -9931334, guid: b119cfd4f39d6974f83a907d313aee37, type: 3}
@@ -85,6 +86,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-626647302965004386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581512945654055204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b761793af91713745934aec47f1670a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bp: {fileID: 11400000, guid: 1faed844666d6d6438030a39fd45d23e, type: 2}
+  sr: {fileID: 1779967437688663463}
+  HP: 0
 --- !u!61 &6168533431850178722
 BoxCollider2D:
   m_ObjectHideFlags: 0

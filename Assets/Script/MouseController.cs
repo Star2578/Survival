@@ -35,13 +35,16 @@ public class MouseController : MonoBehaviour
 
             var target = focusTile.Value.collider;
 
-            if (target != GameManager.instance.overlayTile.GetComponent<Collider2D>())
+            if (target.tag != GameManager.instance.overlayTile.tag)
+            {
                 Attack(target);
+            }
         }
     }
 
     private void Attack(Collider2D target)
     {
         Debug.Log("it's " + target.name);
+        target.SendMessage("GotHit", 1);
     }
 }

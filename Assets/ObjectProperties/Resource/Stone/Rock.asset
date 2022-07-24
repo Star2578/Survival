@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e4cbebee78ad804f8b307211e3dc26f, type: 3}
-  m_Name: Log
+  m_Name: Rock
   m_EditorClassIdentifier: 
-  texture: {fileID: -1181097991, guid: b119cfd4f39d6974f83a907d313aee37, type: 3}
+  texture: {fileID: -9931334, guid: b119cfd4f39d6974f83a907d313aee37, type: 3}
   hardness: 02
-  HP: 5
-  objectToDrop:
-  - {fileID: 4426090371943510957, guid: 3e12d34c9b153de46934161bdfe015b8, type: 3}
+  HP: 10
+  objectToDrop: []
