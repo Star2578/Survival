@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Overlay
+  - Block
+  - Entity
+  - Item
   layers:
   - Default
   - TransparentFX

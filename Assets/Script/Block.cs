@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockScript : MonoBehaviour
+public class Block : MonoBehaviour
 {
     [Header("Properties")]
     public BlockProperty bp;

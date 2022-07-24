@@ -35,7 +35,7 @@ public class MouseController : MonoBehaviour
 
             var target = focusTile.Value.collider;
 
-            if (target.tag != GameManager.instance.overlayTile.tag)
+            if (target.tag == "Block")
             {
                 Attack(target);
             }

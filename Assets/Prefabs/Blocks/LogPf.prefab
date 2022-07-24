@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 90337514988610976}
   m_Layer: 0
   m_Name: LogPf
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   bp: {fileID: 11400000, guid: 5878b864e151f844b95006a8e9861ec2, type: 2}
   sr: {fileID: 7379980696663181608}
   HP: 0
-  force: 0.5
+  speed: 5
 --- !u!61 &90337514988610976
 BoxCollider2D:
   m_ObjectHideFlags: 0
